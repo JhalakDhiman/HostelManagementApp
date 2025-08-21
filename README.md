@@ -36,5 +36,5 @@ Project is: _InProcess
 
 ## Contact
 
-Created by Marzieh Monshizadeh :)
+Created by Jhalak Dhiman along with NovaWitz team :)
 
