@@ -1,10 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/y/marziyemonshizadeh/fullStack-CMS)
-![GitHub language count](https://img.shields.io/github/languages/count/marziyemonshizadeh/fullStack-CMS)
-
-# fullStack-CMS
-This project is a cms
 ## Technologies Used
 
 ![](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)   ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
