@@ -1,7 +1,7 @@
 export const ACCOUNT_TYPE = {
-    STUDENT: "Student",
-    GATEKEEPER: "Gatekeeper",
-    CLERK:"Clerk",
-    MESS_OFFICIAL:"Messofficial"
+    STUDENT: "student",
+    GATEKEEPER: "gatekeeper",
+    CLERK:"clerk",
+    MESS_OFFICIAL:"messofficial"
 }
   

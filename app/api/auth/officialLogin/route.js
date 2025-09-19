@@ -1,8 +1,8 @@
-import User from "@models/user.js";
+import User from "@/models/user.js";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken'
-import Hostel from "@models/hostel.js";
-import {connectDB} from "@utils/database";
+import Hostel from "@/models/hostel.js";
+import {connectDB} from "@/utils/database";
 
 export const POST = async (req, res) => {
     try {

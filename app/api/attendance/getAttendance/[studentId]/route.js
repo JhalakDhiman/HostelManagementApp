@@ -1,5 +1,5 @@
-import Attendance from "@models/attendance";
-import { connectDB } from "@utils/database";
+import Attendance from "@/models/attendance";
+import { connectDB } from "@/utils/database";
 
 function getDateRange(startDateStr, endDateStr) {
   const dates = [];

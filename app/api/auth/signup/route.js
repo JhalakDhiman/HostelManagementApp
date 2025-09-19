@@ -1,5 +1,5 @@
-import User from "@models/user.js";
-import connectDB from "@utils/database";
+import User from "@/models/user.js";
+import connectDB from "@/utils/database";
 import bcrypt from 'bcryptjs';
 
 export const POST = async(req)=>{

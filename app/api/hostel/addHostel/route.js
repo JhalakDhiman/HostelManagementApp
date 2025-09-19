@@ -1,4 +1,4 @@
-import Hostel from '@models/hostel.js'
+import Hostel from '@/models/hostel.js'
 
 export const POST = async(req,res)=>{
     try{

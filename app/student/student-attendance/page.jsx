@@ -3,7 +3,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { MdCoPresent } from "react-icons/md";
 import { MdCancelPresentation } from "react-icons/md";
-import { AuthContext } from "@context/AuthContext";
+import { AuthContext } from "@/context/AuthContext";
 import toast from 'react-hot-toast'
 
 const AttendanceDashboard = () => {

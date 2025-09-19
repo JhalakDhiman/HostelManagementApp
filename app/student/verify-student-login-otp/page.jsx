@@ -4,8 +4,8 @@ import React, { useContext, useState } from 'react'
 import OTPInput from 'react-otp-input'
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { RxCountdownTimer } from "react-icons/rx";
-import { StudentLoginContext } from '@context/StudentLoginData';
-import { AuthContext } from '@context/AuthContext';
+import { StudentLoginContext } from '@/context/StudentLoginData';
+import { AuthContext } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import toast from 'react-hot-toast'

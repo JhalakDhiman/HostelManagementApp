@@ -4,11 +4,11 @@ import '@/styles/globals.css'
 import { useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useForm } from 'react-hook-form';
-import { hostelClerks } from '@data/hostelClerks';
+import { hostelClerks } from '@/data/hostelClerks';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import toast from 'react-hot-toast'
-import { StudentLoginContext } from '@context/StudentLoginData';
+import { StudentLoginContext } from '@/context/StudentLoginData';
 
 
 const StudentLoginForm = () => {

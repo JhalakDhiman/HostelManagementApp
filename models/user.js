@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
     },
     accountType: {
         type: String,
-        enum: ["Clerk", "Student", "Messofficial","Gatekeeper"],
+        enum: ["clerk", "student", "messofficial","gatekeeper"],
         required: true,
     },
     additionalDetails: {

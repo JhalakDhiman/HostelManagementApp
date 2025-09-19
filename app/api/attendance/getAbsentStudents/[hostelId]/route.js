@@ -1,7 +1,7 @@
-import User from '@models/user.js'
-import Attendance from '@models/attendance';
-import { connectDB } from '@utils/database';
-import Profile from '@models/profile'
+import User from '@/models/user.js'
+import Attendance from '@/models/attendance';
+import { connectDB } from '@/utils/database';
+import Profile from '@/models/profile'
 
 export const GET = async (req, {params}) => {
   try {
@@ -9,16 +9,12 @@ export const GET = async (req, {params}) => {
     const { hostelId } = params;
     const today = new Date().toISOString().split('T')[0]; // 'YYYY-MM-DD'
 
-    console.log("today date iss: ",today);
-
-    console.log(typeof (hostelId));
-
     // const hid = new mongoose.Schema.Types.ObjectId(hostelId);
 
     // Get all students in this hostel
     const allStudents = await User.find({
       // hostel: hid,
-      accountType: 'Student'
+      accountType: 'student'
     }).populate('additionalDetails').populate('hostel');
 
     const presentStudents = await Attendance.find({ hostelId, date: today });

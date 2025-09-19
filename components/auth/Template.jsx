@@ -7,7 +7,7 @@ import Image from 'next/image';
 const Template = ({heading,description1,description2,formType}) => {
 
   return (
-    <div className="flex lg:flex-row h-full md:flex-row flex-col max-w-[1160px] w-11/12 py-12 mx-auto gap-x-10 justify-between gap-y-0">
+    <div className="flex lg:flex-row min-h-full md:flex-row flex-col max-w-[1160px] w-11/12 py-12 mx-auto gap-x-10 justify-between gap-y-0">
 
        {/* left container */}
 
@@ -31,8 +31,8 @@ const Template = ({heading,description1,description2,formType}) => {
 
        {/* right container */}
 
-       <div className="relative invisible md:visible lg:visible lg:w-[40%] w-full">
-        <Image src='/assets/images/hostelImage.jpg' alt='some' width={558} height={490} className="absolute -top-4  right-4"></Image>
+       <div className="relative invisible md:visible lg:visible lg:w-[40%] w-full h-full">
+        <Image src='/assets/images/hostelImage.jpg' alt='some' width={558} height={504} className="absolute -top-4 h-[390px]  right-10"></Image>
         <Image src='/assets/images/frame.png' alt='some' width={558} height={504} ></Image>
        </div>
 

@@ -1,11 +1,11 @@
 import { cookies } from 'next/headers';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import User from '@models/user'; 
-import Hostel from '@models/hostel';    
-import OTP from '@models/otp';        
-import {connectDB} from '@utils/database';  
-import { hostelClerks } from '@data/hostelClerks'; 
+import User from '@/models/user'; 
+import Hostel from '@/models/hostel';    
+import OTP from '@/models/otp';        
+import {connectDB} from '@/utils/database';  
+import { hostelClerks } from '@/data/hostelClerks'; 
 
 export const POST = async (req) => {
   try {

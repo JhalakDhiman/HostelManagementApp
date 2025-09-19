@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useContext, useEffect } from 'react';
-import { AuthContext } from '@context/AuthContext';
+import { AuthContext } from '@/context/AuthContext';
 import toast from 'react-hot-toast'
 
 const Absentees = () => {

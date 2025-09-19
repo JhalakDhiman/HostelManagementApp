@@ -1,5 +1,7 @@
-import Room from '@models/room.js'
-import {connectDB} from '@utils/database';
+import Room from '@/models/room.js'
+import User from '@/models/user.js'
+import {connectDB} from '@/utils/database';
+import Profile from '@/models/profile.js'
 
 export const GET = async (req, res) => {
     await connectDB();

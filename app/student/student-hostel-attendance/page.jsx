@@ -1,7 +1,7 @@
 'use client'
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { AuthContext } from '@context/AuthContext';
+import { AuthContext } from '@/context/AuthContext';
 
 const MarkHostelAttendance = () => {
   const { user } = useContext(AuthContext);
@@ -20,52 +20,61 @@ const MarkHostelAttendance = () => {
   const hostelId = user?.hostel?._id;
   const studentId = user?._id;
 
-  const markAttendance = async () => {
+  const markAttendance = () => {
     if (!navigator.geolocation) {
       toast.error('Geolocation is not supported by your browser.');
       return;
     }
 
-    if (studentId && hostelId) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const lat = position.coords.latitude;
-          const long = position.coords.longitude;
+    const geoOptions = {
+      enableHighAccuracy: true,
+      maximumAge: 0,
+      timeout: 10000,
+    };
 
-          try {
-            const response = await fetch('/api/attendance/markHostelAttendance', {
-              method: 'POST',
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                lat,
-                long,
-                studentId,
-                hostelId,
-                date: formattedDate
-              }),
-            });
+    const watcher = navigator.geolocation.watchPosition(
+      async (position) => {
+        const lat = position.coords.latitude;
+        const long = position.coords.longitude;
 
-            const data = await response.json();
-            console.log(data);
+        // Stop watching after getting the first accurate reading
+        navigator.geolocation.clearWatch(watcher);
 
-            if (!data.success) {
-              toast.error(data.message);
-              return;
-            }
+        try {
+          const response = await fetch('/api/attendance/markHostelAttendance', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              lat,
+              long,
+              studentId,
+              hostelId,
+              date: formattedDate
+            }),
+          });
 
-            toast.success(data.message);
-          } catch (err) {
-            console.error('API error:', err);
-            toast.error('Failed to mark attendance.');
+          const data = await response.json();
+          console.log(data);
+
+          if (!data.success) {
+            toast.error(data.message);
+            return;
           }
-        },
-        (error) => {
-          console.error('Location error:', error);
-          toast.error('Failed to access location.');
+
+          toast.success(data.message);
+        } catch (err) {
+          console.error('API error:', err);
+          toast.error('Failed to mark attendance.');
         }
-      );
-    }
+      },
+      (error) => {
+        console.error('Location error:', error);
+        toast.error('Failed to access location.');
+      },
+      geoOptions
+    );
   };
+
 
   return (
     <div className="text-richblack-5 p-3 flex justify-center items-center h-full">

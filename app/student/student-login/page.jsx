@@ -1,7 +1,7 @@
 import React from 'react'
-import login from '@public/assets/images/login.webp'
+import login from '@/public/assets/images/login.webp'
 import '@/styles/globals.css'
-import StudentLoginTemplate from '@components/auth/StudentLoginTemplate'
+import StudentLoginTemplate from '@/components/auth/StudentLoginTemplate'
 
 const StudentLogin = () => {
   return (

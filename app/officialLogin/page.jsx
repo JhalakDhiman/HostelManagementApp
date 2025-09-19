@@ -1,5 +1,5 @@
 import React from 'react'
-import Template from '@components/auth/Template'
+import Template from '@/components/auth/Template'
 
 const OfficialLogin = () => {
   return (

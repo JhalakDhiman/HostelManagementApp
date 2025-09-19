@@ -1,6 +1,6 @@
-import OTP from "@models/otp.js";
+import OTP from "@/models/otp.js";
 import otpGenerator from 'otp-generator'
-import {connectDB} from "@utils/database";
+import {connectDB} from "@/utils/database";
 
 export const POST = async(req)=>{
 

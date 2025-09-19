@@ -5,9 +5,11 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import Tab from './Tab';
-import { ACCOUNT_TYPE } from '@utils/constants';
-import { AuthContext } from '@context/AuthContext';
+import { ACCOUNT_TYPE } from '@/utils/constants';
+import { AuthContext } from '@/context/AuthContext';
 import toast from 'react-hot-toast'
+import { set } from 'mongoose';
+import { Loader2 } from 'lucide-react';
 
 const SignupForm = () => {
 
@@ -20,6 +22,8 @@ const SignupForm = () => {
     const [showConfirmPassword, setConfirmPassword] = useState(false);
     const {user,token} = useContext(AuthContext);
     const [accountType,setAccountType] = useState(ACCOUNT_TYPE.STUDENT);
+    const [loading,setLoading] = useState(false);
+
     const tabData = [
         {
           name:"Student",
@@ -31,7 +35,8 @@ const SignupForm = () => {
     const router = useRouter();
 
     const submitHandler = async(data) => {
-
+        setLoading(true);
+        const toastId = toast.loading("Alloting Room...");
         console.log("in room allotment clerk data : ",user);
         console.log(data);
 
@@ -76,14 +81,18 @@ const SignupForm = () => {
          const data2 = await res.json();
          if(!data2.success){
             toast.error(data2.message);
+            setLoading(false);
+            toast.dismiss(toastId);
             return;
          }
          toast.success(data2.message);
          router.push('/clerk/clerk-dashboard')
+         setLoading(false);
+         toast.dismiss(toastId);
     }
 
     return (
-        <div className="w-11/12 h-full max-width-[450px]">
+        <div className="w-11/12 min-h-full max-w-[450px]">
 
             <Tab tabData={tabData} accountType={accountType} setAccountType={setAccountType}></Tab>
 
@@ -314,8 +323,11 @@ const SignupForm = () => {
                     }
                 </div>
 
-                <button type="submit"
-                    className="bg-yellow-100 rounded-[8px] mt-7 font-medium text-[#000814] px-[12px] py-[8px] w-full">Allot Room</button>
+                <button type="submit" disabled={loading} 
+                    className="bg-yellow-100 rounded-[8px] mt-7 flex gap-2 font-medium text-[#000814] px-[12px] py-[8px] w-full">
+                    {loading && <Loader2 className='animate-spin'/>}
+                    Allot Room
+                </button>
 
 
             </form>

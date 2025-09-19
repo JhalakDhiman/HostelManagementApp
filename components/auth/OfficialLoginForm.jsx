@@ -3,14 +3,16 @@ import React, { useContext } from 'react'
 import { useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useForm } from 'react-hook-form';
-import { AuthContext } from '@context/AuthContext';
+import { AuthContext } from '@/context/AuthContext';
 import toast from 'react-hot-toast'
+import { useRouter } from 'next/navigation';
 
 
 const LoginForm = () => {
 
     const { setUser, setToken } = useContext(AuthContext);
     const [showPassword, setPassword] = useState(false);
+    const router = useRouter();
 
     const {
         register,
@@ -52,6 +54,7 @@ const LoginForm = () => {
             setToken(data.token);
             localStorage.setItem("token", JSON.stringify(data.token));
             localStorage.setItem("user", JSON.stringify(data.user));
+            router.push(`/${data.user.accountType}/${data.user.accountType}-dashboard`);
 
             // if (data.user?.accountType === ACCOUNT_TYPE.GATEKEEPER) {
             //     navigate('/gatekeeper-dashboard');

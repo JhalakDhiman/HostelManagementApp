@@ -1,7 +1,7 @@
-import User from "@models/user.js";
-import Attendance from "@models/attendance.js";
-import { connectDB } from "@utils/database.js";
-import Hostel from "@models/hostel.js"; 
+import User from "@/models/user.js";
+import Attendance from "@/models/attendance.js";
+import { connectDB } from "@/utils/database.js";
+import Hostel from "@/models/hostel.js"; 
 
 // Haversine distance in meters
 const getDistance = (lat1, lon1, lat2, lon2) => {
@@ -43,7 +43,7 @@ export const POST = async (req, res) => {
     });
   }
 
-  const distance = getDistance(lat,long,lat,long);
+  const distance = getDistance(28.4594965,77.0266383,lat,long);
   console.log(lat,long);
   console.log(distance);
 

@@ -1,9 +1,9 @@
-import Profile from "@models/profile";
-import Hostel from "@models/hostel";
+import Profile from "@/models/profile";
+import Hostel from "@/models/hostel";
 import bcrypt from 'bcrypt'
-import Room from "@models/room";
-import User from "@models/user";
-import {connectDB} from "@utils/database";
+import Room from "@/models/room";
+import User from "@/models/user";
+import {connectDB} from "@/utils/database";
 
 export const POST = async (req, res) => {
   await connectDB();

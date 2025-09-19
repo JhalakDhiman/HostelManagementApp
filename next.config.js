@@ -5,7 +5,9 @@ const nextConfig = {
     serverComponentsExternalPackages: ["mongoose"],
   },
   images: {
-    domains: ['t4.ftcdn.net', 'lh3.googleusercontent.com'],
+    domains: ['t4.ftcdn.net', 'lh3.googleusercontent.com','api.dicebear.com','res.cloudinary.com'],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   webpack(config) {
     config.experiments = {
